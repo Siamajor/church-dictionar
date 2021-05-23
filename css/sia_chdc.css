@@ -2,7 +2,7 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
- @font-face {
+@font-face {
   font-family: "Monomakh Unicode";
   src: url(../fonts/MonomakhUnicode.eot);
   src: url(../fonts/MonomakhUnicode.eot?#iefix) format("embedded-opentype"),
@@ -12,6 +12,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+#sia-dictionar {
+  padding: 1em;
+} 
 
 #sia-dictionar h1 {
   color: #ff0000;
@@ -89,14 +93,20 @@
   font-family: cursive;
 }
 
-
 #sia-dictionar .oglavlenie {
   text-align: center;
 }
 
 #sia-dictionar p:first-letter {
-  font-family:"Times New Roman", Times, serif; 
-  color:#f36;
-  font-size:140%; 
-  font-weight:bold
+  font-family: "Times New Roman", Times, serif;
+  color: #f36;
+  font-size: 140%;
+  font-weight: bold;
 }
+
+.all-word {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
