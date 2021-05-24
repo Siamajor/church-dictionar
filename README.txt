@@ -8,12 +8,11 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
-
 == Description ==
 
-T# WordPress Plugin Church Dictionar
-* Выводит при помощи шорткода церковнославянский словарь
+# WordPress Plugin Church Dictionar
+* Этот плагин делает небольшую, но важную работу: выводит на странице краткий церковнославянский словарь с формой поиска и алфавитным указателем
+* This plugin does a small but important job: it displays a short Church Slavonic dictionary with a search form and an alphabetical index on the page.
 ## Contents
 
 The WordPress Plugin Church Dictionar includes the following files:
@@ -53,7 +52,7 @@ A copy of the license is included in the root of the plugin’s directory. The f
 The WordPress Plugin church-dictionar was started in 2021 by [Igor Soloshenko](https://github.com/Siamajor) and has since included a number of great contributions. 
 
 ## Documentation, FAQs, and More
-* Плагин выводит с помощью шорткода [sia-chdc] церковнославянский словарь, включающий в себя более 2500 слов.
+* Плагин выводит с помощью шорткода [sia-chdc] церковнославянский словарь, включающий в себя более около 2300 слов.
 * Встроенный поиск
 * Алфавитный указатель
 * Плавная прокрутка
