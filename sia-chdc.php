@@ -1,13 +1,13 @@
 <?php
 /*
-    Plugin Name: Church Slavonic Dictionary
+    Plugin Name: Church Dictionary
     Plugin URI: https://github.com/Siamajor/church-dictionar
     Description: Церковнославянский словарь
     Author: SIA
     Version: 1.10
     Author URI: https://github.com/Siamajor
     License:     GPL2
-    Text Domain: saints
+    Text Domain: church-dictionar
     Domain Path: /languages
 */
 
@@ -60,18 +60,12 @@ function sia_chdc_admin()
     wp_enqueue_script('sia_chdc_admin', plugins_url('admin/js/sia_chdc_admin.js', __FILE__));
 }
 
-add_action('fileshow', 'incl');
-function incl()
-{
-    include_once('arr.php');
-}
-
-
 //** админка */
 add_action('admin_menu', 'add_chdc_page');
 function add_chdc_page()
 {
-    add_options_page('Настройки плагина Church Dictionar', 'Church Dictionar', 'manage_options', 'chdc_option', 'chdc_options_page_output');
+    $title_admin = __('Настройки плагина Church Dictionar', 'church-dictionar');
+    add_options_page( $title_admin, 'Church Dictionar', 'manage_options', 'chdc_option', 'chdc_options_page_output');
 }
 
 include_once('admin/sia_chdc_admin.php');
@@ -93,12 +87,12 @@ function chdc_options_page_output()
 <?php
 }
 
-
 //*** [sia-chdc] */
 add_shortcode('sia-chdc', 'sia_schdc');
 function sia_schdc()
 {
-    include('arr.php');
+    //do_action('fileshow');
+
     $letters = array(
         "#1" => "А", "#2" => "Б", "#3" => "В", "#4" => "Г", "#5" => "Д", "#6" => "Е", "#7" => "Ж", "#8" => "З", "#9" => "И", "#10" => "К", "#11" => "Л", "#12" => "М",  "#13" => "Н", "#14" => "О", "#15" => "П", "#16" => "Р", "#17" => "С", "#18" => "Т", "#19" => "У", "#20" => "Ф", "#21" => "Х", "#22" => "Ц", "#23" => "Ч", "#24" => "Ш", "#25" => "Щ", "#26" => "Ю", "#27" => "Я"
     );
@@ -146,6 +140,7 @@ function sia_schdc()
             ?>
             <ul class="list">
                 <?php
+                include('arr.php');
 
                 $const1 = ' &ndash; <span class="descr">';
                 $const2 = '</span>';
@@ -166,7 +161,9 @@ function sia_schdc()
                     }
                 }
                 $dt = wp_date('j F Y');
-                echo '<div class="all-word">На ' . $dt . 'г. в словаре <strong>' . $all . '</strong> слов</div>';
+                $vslov = __('г. в словаре <strong>', 'church-dictionar');
+                $slov = __('</strong> слов</div>', 'church-dictionar');
+                echo '<div class="all-word">На ' . $dt . $vslov . $all . $slov;
                 ?>
             </ul>
         </div>
@@ -185,4 +182,3 @@ function sia_chdc_activate()
 }
 register_activation_hook(__FILE__, 'sia_chdc_activate');
 activate_plugins('church-dictionar/sia-chdc.php');
-
