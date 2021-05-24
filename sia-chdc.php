@@ -185,3 +185,17 @@ function sia_chdc_activate()
 }
 register_activation_hook(__FILE__, 'sia_chdc_activate');
 activate_plugins('church-dictionar/sia-chdc.php');
+
+## Очистка данных
+function chdc_sanitize_callback($options)
+{
+    foreach ($options as $name => &$val) {
+        if ($name == 'chdc_titleDic')
+            $val = strip_tags($val);
+        if ($name == 'chdc_search')
+            $val = intval($val);
+        if ($name == 'chdc_alfavit')
+            $val = intval($val);
+    }
+    return $options;
+}
