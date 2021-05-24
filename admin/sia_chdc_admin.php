@@ -112,3 +112,17 @@ function fill_chdc_field_about()
     echo $rightbl;
     echo '</div></div>';
 }
+
+## Очистка данных
+function chdc_sanitize_callback($options)
+{
+    foreach ($options as $name => &$val) {
+        if ($name == 'chdc_titleDic')
+            $val = strip_tags($val);
+        if ($name == 'chdc_search')
+            $val = intval($val);
+        if ($name == 'chdc_alfavit')
+            $val = intval($val);
+    }
+    return $options;
+}
