@@ -17,7 +17,7 @@ The WordPress Plugin Church Dictionar includes the following files:
 ## Installation
 
 * The church-dictionar can be installed directly into your plugins folder "as-is".
-* Change the name of the folder with the plugin to "church-dictionar" if it is different
+* Change the name of the folder with the plugin to "Church Dictionary" if it is different
 
 ## WordPress.org Preparation
 

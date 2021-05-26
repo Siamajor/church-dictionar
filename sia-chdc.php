@@ -4,10 +4,10 @@
     Plugin URI: https://github.com/Siamajor/church-dictionar
     Description: Церковнославянский словарь
     Author: SIA
-    Version: 1.10
+    Version: 1.10.1
     Author URI: https://github.com/Siamajor
     License:     GPL2
-    Text Domain: church-dictionar
+    Text Domain: church-dictionary
     Domain Path: /languages
 */
 
@@ -64,8 +64,8 @@ function sia_chdc_admin()
 add_action('admin_menu', 'add_chdc_page');
 function add_chdc_page()
 {
-    $title_admin = __('Настройки плагина Church Dictionar', 'church-dictionar');
-    add_options_page( $title_admin, 'Church Dictionar', 'manage_options', 'chdc_option', 'chdc_options_page_output');
+    $title_admin = __('Настройки плагина Church Dictionary', 'church-dictionary');
+    add_options_page( $title_admin, 'Church Dictionary', 'manage_options', 'chdc_option', 'chdc_options_page_output');
 }
 
 include_once('admin/sia_chdc_admin.php');
@@ -161,8 +161,8 @@ function sia_schdc()
                     }
                 }
                 $dt = wp_date('j F Y');
-                $vslov = __('г. в словаре <strong>', 'church-dictionar');
-                $slov = __('</strong> слов</div>', 'church-dictionar');
+                $vslov = __('г. в словаре <strong>', 'church-dictionary');
+                $slov = __('</strong> слов</div>', 'church-dictionary');
                 echo '<div class="all-word">На ' . $dt . $vslov . $all . $slov;
                 ?>
             </ul>
@@ -178,7 +178,7 @@ function sia_chdc_activate()
     update_option('chdc_search', 1);
     update_option('chdc_alfavit', 1);
 
-    load_plugin_textdomain('church-dictionar', FALSE, basename(dirname(__FILE__)) . '/languages/');
+    load_plugin_textdomain('church-dictionary', FALSE, basename(dirname(__FILE__)) . '/languages/');
 }
 register_activation_hook(__FILE__, 'sia_chdc_activate');
-activate_plugins('church-dictionar/sia-chdc.php');
+activate_plugins('church-dictionary/sia-chdc.php');

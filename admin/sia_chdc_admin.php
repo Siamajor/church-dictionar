@@ -1,7 +1,7 @@
 <?php
 /*
-    Plugin Name: church-dictionar
-	Admin page
+
+    Admin page
     Author URI: https://github.com/Siamajor
     License:     GPL2
 */
@@ -23,11 +23,11 @@ function chdc_plugin_settings()
     // поля
     add_settings_field('chdc_field_text', '', 'fill_chdc_field_text', 'chdc_page', 'section_id1');
 
-    add_settings_field('chdc_field1', __('Заголовок блока с описаниями', 'church-dictionar'), 'fill_chdc_field1', 'chdc_page', 'section_id1');
+    add_settings_field('chdc_field1', __('Заголовок блока с описаниями', 'church-dictionary'), 'fill_chdc_field1', 'chdc_page', 'section_id1');
 
-    add_settings_field('chdc_field_search', __('Поиск', 'church-dictionar'), 'fill_chdc_field_search', 'chdc_page', 'section_id1');
+    add_settings_field('chdc_field_search', __('Поиск', 'church-dictionary'), 'fill_chdc_field_search', 'chdc_page', 'section_id1');
 
-    add_settings_field('chdc_field_alfavit', __('Алфавитный указатель', 'church-dictionar'), 'fill_chdc_field_alfavit', 'chdc_page', 'section_id1');
+    add_settings_field('chdc_field_alfavit', __('Алфавитный указатель', 'church-dictionary'), 'fill_chdc_field_alfavit', 'chdc_page', 'section_id1');
 
     add_settings_field('chdc_field_about', '', 'fill_chdc_field_about', 'chdc_page', 'section_id1');
 }
@@ -35,7 +35,7 @@ function fill_chdc_field_text()
 {
     echo '<div class="sia-chdc">';
 
-    $textTop = __("Этот плагин делает небольшую, но важную работу: выводит на странице краткий церковнославянский словарь  с формой поиска и алфавитным указателем<br/><span style='font-size: x-small;'>Источник описаний: Православие и мир</span>", 'church-dictionar');
+    $textTop = __("Этот плагин делает небольшую, но важную работу: выводит на странице краткий церковнославянский словарь  с формой поиска и алфавитным указателем<br/><span style='font-size: x-small;'>Источник описаний: Православие и мир</span>", 'church-dictionary');
 
 
 ?>
@@ -50,8 +50,8 @@ function fill_chdc_field1()
 {
     $val = get_option('chdc_option');
     $titleOpt = $val ? $val['chdc_titleDic'] : null;
-    $plshldTitle = __('Заголовок', 'church-dictionar');
-    $titleNull = __('Например, КРАТКИЙ ЦЕРКОВНОСЛАВЯНСКИЙ СЛОВАРЬ<br/>Если оставить пустым не будет выводится', 'church-dictionar');
+    $plshldTitle = __('Заголовок', 'church-dictionary');
+    $titleNull = __('Например, КРАТКИЙ ЦЕРКОВНОСЛАВЯНСКИЙ СЛОВАРЬ<br/>Если оставить пустым не будет выводится', 'church-dictionary');
 ?>
     <div class="sia">
         <div class="form-group">
@@ -70,8 +70,8 @@ function fill_chdc_field_search()
     } else {
         $search = '';
     }
-    $pokinfo = __(' показывать поле поиска', 'church-dictionar');
-    $esinfo = __('Если отмечено, будет показано поле для поиска ', 'church-dictionar');
+    $pokinfo = __(' показывать поле поиска', 'church-dictionary');
+    $esinfo = __('Если отмечено, будет показано поле для поиска ', 'church-dictionary');
 ?>
     <div class="sia-chdc">
         <label class="checkbox"><input type="checkbox" name="chdc_option[chdc_search]" value="1" <?php checked(1, $search) ?> /><span><em><strong><?php echo $pokinfo; ?></strong></em></span></label>
@@ -88,8 +88,8 @@ function fill_chdc_field_alfavit()
     } else {
         $alfavit = '';
     }
-    $pokinfo2 = __(' показывать алфавитный указатель', 'church-dictionar');
-    $esinfo2 = __('Если отмечено, будет показан алфавитный указатель', 'church-dictionar');
+    $pokinfo2 = __(' показывать алфавитный указатель', 'church-dictionary');
+    $esinfo2 = __('Если отмечено, будет показан алфавитный указатель', 'church-dictionary');
 ?>
     <div class="sia-chdc">
         <label class="checkbox"><input type="checkbox" name="chdc_option[chdc_alfavit]" value="1" <?php checked(1, $alfavit) ?> /><span><em><strong><?php echo $pokinfo2; ?></strong></em></span></label>
@@ -101,11 +101,11 @@ function fill_chdc_field_alfavit()
 
 function fill_chdc_field_about()
 {
-    $myphoto = '<img src="' . plugins_url('church-dictionar/admin/css/435.png') . '" class="imgmy">';
+    $myphoto = '<img src="' . plugins_url('church-dictionary/admin/435.png') . '" class="imgmy">';
 
     echo '<div class="chdc-attention_admin">';
     echo $myphoto;
-    $rightbl = __("<h4 style='text-align:center;'>Спасибо за проявленный интерес к плагину Church Slavonic Dictionary!</h4>Дорогие братия и сестры!<br />Надеюсь, что мой плагин окажется для Вас полезным!<br />Плагин выводит на странице с установленным шорткодом<br/><strong>[sia-chdc]</strong><br/>краткий церковнославянский словарь.<br />Если у Вас возникли вопросы или пожелания, вы можете направить их на siamajor@ukr.net<br/><strong>Береги Вас Господь!</strong>", 'church-dictionar');
+    $rightbl = __("<h4 style='text-align:center;'>Спасибо за проявленный интерес к плагину Church Slavonic Dictionary!</h4>Дорогие братия и сестры!<br />Надеюсь, что мой плагин окажется для Вас полезным!<br />Плагин выводит на странице с установленным шорткодом<br/><strong>[sia-chdc]</strong><br/>краткий церковнославянский словарь.<br />Если у Вас возникли вопросы или пожелания, вы можете направить их на siamajor@ukr.net<br/><strong>Береги Вас Господь!</strong>", 'church-dictionary');
 
     echo $rightbl;
     echo '</div></div>';

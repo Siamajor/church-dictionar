@@ -4,7 +4,7 @@ Donate link: https://github.com/Siamajor/
 Tags: religion
 Requires at least: 3.0.1
 Tested up to: 5.7.2
-Stable tag: 4.3
+Stable tag: 1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,7 +29,7 @@ The WordPress Plugin Church Dictionar includes the following files:
 ## Installation
 
 * The church-dictionar can be installed directly into your plugins folder "as-is".
-* Change the name of the folder with the plugin to "church-dictionar" if it is different
+* Change the name of the folder with the plugin to "Church Dictionary" if it is different
 
 ## WordPress.org Preparation
 
