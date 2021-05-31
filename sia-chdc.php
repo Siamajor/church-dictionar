@@ -4,7 +4,7 @@
     Plugin URI: https://github.com/Siamajor/church-dictionar
     Description: Церковнославянский словарь
     Author: SIA
-    Version: 1.10.1
+    Version: 1.10.2
     Author URI: https://github.com/Siamajor
     License:     GPL2
     Text Domain: church-dictionary
@@ -32,7 +32,7 @@ defined('ABSPATH') or die();
 add_action('wp_enqueue_scripts', 'sia_chdc_style');
 function sia_chdc_style()
 {
-    wp_enqueue_style('sia_chdc_style', plugins_url('css/sia_chdc.css', __FILE__));
+    wp_register_style('sia_chdc_style', plugins_url('css/sia_chdc.css', __FILE__));
 }
 
 add_action('admin_enqueue_scripts', 'sia_chdc_admin_style');
@@ -44,14 +44,14 @@ function sia_chdc_admin_style()
 add_action('wp_enqueue_scripts', 'sia_chdc');
 function sia_chdc()
 {
-    wp_enqueue_script('sia_chdc', plugins_url('js/sia_chdc.js', __FILE__));
+    wp_register_script('sia_chdc', plugins_url('js/sia_chdc.js', __FILE__));
     // wp_localize_script('sia_saints', 'adminurl', array('url_admin' => admin_url('admin-ajax.php')));
 }
 
 add_action('wp_enqueue_scripts', 'sia_hideseek');
 function sia_hideseek()
 {
-    wp_enqueue_script('sia_hideseek', plugins_url('js/jquery.hideseek.min.js', __FILE__));
+    wp_enqueue_script('hideseek', plugins_url('js/jquery.hideseek.min.js', __FILE__));
 }
 
 add_action('admin_enqueue_scripts', 'sia_chdc_admin');
@@ -76,9 +76,9 @@ function chdc_options_page_output()
 ?>
     <div class="wrap">
         <h2><?php echo get_admin_page_title() ?></h2>
-        <form action="options.php" method="POST">
+        <form id="chdc-form" action="options.php" method="POST">
             <?php
-            settings_fields('option_group');     // скрытые защитные поля
+            settings_fields('chdc_dic');     // скрытые защитные поля
             do_settings_sections('chdc_page'); // секции с настройками (опциями).
             submit_button();
             ?>
@@ -91,8 +91,8 @@ function chdc_options_page_output()
 add_shortcode('sia-chdc', 'sia_schdc');
 function sia_schdc()
 {
-    //do_action('fileshow');
-
+    wp_enqueue_script( 'sia_chdc' );
+    wp_enqueue_style( 'sia_chdc_style' );
     $letters = array(
         "#1" => "А", "#2" => "Б", "#3" => "В", "#4" => "Г", "#5" => "Д", "#6" => "Е", "#7" => "Ж", "#8" => "З", "#9" => "И", "#10" => "К", "#11" => "Л", "#12" => "М",  "#13" => "Н", "#14" => "О", "#15" => "П", "#16" => "Р", "#17" => "С", "#18" => "Т", "#19" => "У", "#20" => "Ф", "#21" => "Х", "#22" => "Ц", "#23" => "Ч", "#24" => "Ш", "#25" => "Щ", "#26" => "Ю", "#27" => "Я"
     );
@@ -174,10 +174,6 @@ function sia_schdc()
 //*** активация */
 function sia_chdc_activate()
 {
-    update_option('chdc_titleDic', 'КРАТКИЙ ЦЕРКОВНОСЛАВЯНСКИЙ СЛОВАРЬ');
-    update_option('chdc_search', 1);
-    update_option('chdc_alfavit', 1);
-
     load_plugin_textdomain('church-dictionary', FALSE, basename(dirname(__FILE__)) . '/languages/');
 }
 register_activation_hook(__FILE__, 'sia_chdc_activate');

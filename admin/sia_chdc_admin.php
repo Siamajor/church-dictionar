@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 function chdc_plugin_settings()
 {
     // параметры: $option_group, $chdc_option, $chdc_sanitize_callback
-    register_setting('option_group', 'chdc_option', 'chdc_sanitize_callback');
+    register_setting('chdc_dic', 'chdc_option', 'chdc_sanitize_callback');
 
     // секция
     add_settings_section('section_id1', '', '', 'chdc_page');
@@ -101,13 +101,17 @@ function fill_chdc_field_alfavit()
 
 function fill_chdc_field_about()
 {
-    $myphoto = '<img src="' . plugins_url('church-dictionary/admin/435.png') . '" class="imgmy">';
+    $chdc_myphoto = '<img src="' . plugins_url('church-dictionary/admin/435.png') . '" class="chdc-imgmy">';
 
     echo '<div class="chdc-attention_admin">';
-    echo $myphoto;
-    $rightbl = __("<h4 style='text-align:center;'>Спасибо за проявленный интерес к плагину Church Slavonic Dictionary!</h4>Дорогие братия и сестры!<br />Надеюсь, что мой плагин окажется для Вас полезным!<br />Плагин выводит на странице с установленным шорткодом<br/><strong>[sia-chdc]</strong><br/>краткий церковнославянский словарь.<br />Если у Вас возникли вопросы или пожелания, вы можете направить их на siamajor@ukr.net<br/><strong>Береги Вас Господь!</strong>", 'church-dictionary');
 
-    echo $rightbl;
+    $chdc_rightbl1 = __("<h4 style='text-align:center;'>Спасибо за проявленный интерес к плагину Church Slavonic Dictionary!</h4>Дорогие братия и сестры!<br />Надеюсь, что мой плагин окажется для Вас полезным!<br />Плагин выводит на странице с установленным шорткодом<br/><strong>[sia-chdc]</strong><br/>краткий церковнославянский словарь.", 'names-saints');
+    $chdc_rightbl2 = __("Если у Вас возникли вопросы или пожелания, вы можете направить их на siamajor@ukr.net<br/><strong>Береги Вас Господь!</strong>", 'names-saints');
+
+echo '<div id="chdc-rightbl">
+<div>' .  $chdc_rightbl1 . '</div><div>' . $chdc_myphoto . '</div><div>' . $chdc_rightbl2 . '</div>
+</div>';
+
     echo '</div></div>';
 }
 
